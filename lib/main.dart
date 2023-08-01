@@ -1,7 +1,10 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qrcafe/navigate.dart';
+
+import 'constants/const_screen/no_connection_screen.dart';
 
 void main() {
   runApp(
@@ -32,6 +35,17 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
+      builder: (context, child) {
+        return StreamBuilder<ConnectivityResult>(
+          stream: Connectivity().onConnectivityChanged,
+          builder: (context, snapshot) {
+            final connectivityResult = snapshot.data;
+            if (connectivityResult == ConnectivityResult.none ||
+                connectivityResult == null) return const NoConnectionScreen();
+            return child!;
+          },
+        );
+      },
     );
   }
 }

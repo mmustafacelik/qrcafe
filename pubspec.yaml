@@ -43,6 +43,8 @@ dependencies:
   go_router: ^10.0.0
   flutter_riverpod: ^2.3.6
   easy_localization: ^3.0.2
+  connectivity_plus: ^4.0.1
+  lottie: ^2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -69,4 +71,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/localizations
+    - assets/localizations/
+    - assets/lotties/
+    - assets/lotties/no_connection_screen/
+    - assets/images/
