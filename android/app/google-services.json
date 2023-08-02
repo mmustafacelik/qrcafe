@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1088067363701",
+    "project_id": "qrcafe-aa724",
+    "storage_bucket": "qrcafe-aa724.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088067363701:android:b4f49c52021cb57885293c",
+        "android_client_info": {
+          "package_name": "com.example.qrcafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088067363701-ur963dm1tijps8jfaaokod7atctukc2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv3KO1LgGxw4VH-ypfJ3gwH67FURc8-nU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088067363701-ur963dm1tijps8jfaaokod7atctukc2c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1088067363701-ckafc1jq573b1jeqvqoeiairo9r676j9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.qrcafe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
