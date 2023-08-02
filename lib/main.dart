@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qrcafe/navigate.dart';
 
 import 'constants/const_screen/no_connection_screen.dart';
@@ -57,7 +58,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends ConsumerWidget {
-  const MyHomePage({super.key});
+  MyHomePage({super.key});
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  late final QRViewController controller;
 
   @override
   Widget build(BuildContext context, ref) {
@@ -66,7 +69,32 @@ class MyHomePage extends ConsumerWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Text(''),
+            SizedBox(
+              height: 400,
+              width: 300,
+              child: QRView(
+                key: qrKey,
+                onQRViewCreated: (controller) {
+                  this.controller = controller;
+                  controller.scannedDataStream.listen(
+                    (scanData) async {
+                      // await controller.pauseCamera().whenComplete(
+                      //       () => context.pushNamed(
+                      //         AppRoute.successPage.name,
+                      //         extra: waitTwoSeconds(),
+                      //       ),
+                      //     );
+                    },
+                  );
+                },
+                overlay: QrScannerOverlayShape(
+                  borderRadius: 10,
+                  borderLength: 30,
+                  borderWidth: 10,
+                  cutOutSize: 300.0,
+                ),
+              ),
+            ),
             Container(),
           ],
         ),
