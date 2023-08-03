@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qrcafe/constants/custom_colors.dart';
 import 'package:qrcafe/navigate.dart';
 
 import 'constants/const_screen/no_connection_screen.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
+      theme: CustomColors().theme,
       builder: (context, child) {
         return StreamBuilder<ConnectivityResult>(
           stream: Connectivity().onConnectivityChanged,
@@ -69,33 +71,63 @@ class MyHomePage extends ConsumerWidget {
       body: SafeArea(
         child: Column(
           children: [
+            // SizedBox(
+            //   height: 400,
+            //   width: 300,
+            //   child: QRView(
+            //     key: qrKey,
+            //     onQRViewCreated: (controller) {
+            //       this.controller = controller;
+            //       controller.scannedDataStream.listen(
+            //         (scanData) async {
+            //           // await controller.pauseCamera().whenComplete(
+            //           //       () => context.pushNamed(
+            //           //         AppRoute.successPage.name,
+            //           //         extra: waitTwoSeconds(),
+            //           //       ),
+            //           //     );
+            //         },
+            //       );
+            //     },
+            //     overlay: QrScannerOverlayShape(
+            //       borderRadius: 10,
+            //       borderLength: 30,
+            //       borderWidth: 10,
+            //       cutOutSize: 300.0,
+            //     ),
+            //   ),
+            // ),
             SizedBox(
-              height: 400,
-              width: 300,
-              child: QRView(
-                key: qrKey,
-                onQRViewCreated: (controller) {
-                  this.controller = controller;
-                  controller.scannedDataStream.listen(
-                    (scanData) async {
-                      // await controller.pauseCamera().whenComplete(
-                      //       () => context.pushNamed(
-                      //         AppRoute.successPage.name,
-                      //         extra: waitTwoSeconds(),
-                      //       ),
-                      //     );
-                    },
-                  );
-                },
-                overlay: QrScannerOverlayShape(
-                  borderRadius: 10,
-                  borderLength: 30,
-                  borderWidth: 10,
-                  cutOutSize: 300.0,
-                ),
+              height: 300,
+            ),
+            Center(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        //border radius equal to or more than 50% of width
+                      )),
+                      onPressed: () {},
+                      child: Text(
+                        'data',
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(),
+                      onPressed: () {},
+                      child: Text(
+                        'data',
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Container(),
           ],
         ),
       ),

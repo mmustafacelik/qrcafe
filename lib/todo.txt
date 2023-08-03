@@ -1,2 +1,2 @@
-Custom renk paleti yapılacak
+Custom renk paleti yapılacak++++
 Butonlar tasarlanıp lottie ile zenginleştirilecek
