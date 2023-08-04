@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qrcafe/constants/custom_colors.dart';
+import 'package:qrcafe/custom_widgets/custom_elevated_button.dart';
 import 'package:qrcafe/navigate.dart';
 
 import 'constants/const_screen/no_connection_screen.dart';
@@ -15,6 +16,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(
     EasyLocalization(
       path: 'assets/localizations',
@@ -103,18 +105,9 @@ class MyHomePage extends ConsumerWidget {
             Center(
               child: Row(
                 children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        //border radius equal to or more than 50% of width
-                      )),
-                      onPressed: () {},
-                      child: Text(
-                        'data',
-                      ),
-                    ),
+                  CustomElevatedButton(
+                    onPressed: () {},
+                    child: Text('asd'),
                   ),
                   Expanded(
                     child: ElevatedButton(

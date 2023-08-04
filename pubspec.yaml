@@ -68,4 +68,4 @@ flutter:
     - assets/localizations/
     - assets/lotties/
     - assets/lotties/no_connection_screen/
-    - assets/images/
+    # - assets/images/
