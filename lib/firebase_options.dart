@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,41 +49,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDjjQz91nAUI-q-S7mxyYYqbtP7YyBM6uA',
-    appId: '1:1088067363701:web:bf23a837c740909985293c',
-    messagingSenderId: '1088067363701',
-    projectId: 'qrcafe-aa724',
-    authDomain: 'qrcafe-aa724.firebaseapp.com',
-    storageBucket: 'qrcafe-aa724.appspot.com',
-    measurementId: 'G-9J17DQHEYS',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAv3KO1LgGxw4VH-ypfJ3gwH67FURc8-nU',
-    appId: '1:1088067363701:android:b4f49c52021cb57885293c',
-    messagingSenderId: '1088067363701',
-    projectId: 'qrcafe-aa724',
-    storageBucket: 'qrcafe-aa724.appspot.com',
+    apiKey: 'AIzaSyCfKEdUXJ9h-P45aCAqqke7lvD5gVkLGaM',
+    appId: '1:886817151519:android:01a69158095d322671932a',
+    messagingSenderId: '886817151519',
+    projectId: 'qrcafe-33aef',
+    storageBucket: 'qrcafe-33aef.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCYPgpw_a8mSP3a5m6S3x1QNxN7ODxEiZk',
-    appId: '1:1088067363701:ios:77354f7958fc940e85293c',
-    messagingSenderId: '1088067363701',
-    projectId: 'qrcafe-aa724',
-    storageBucket: 'qrcafe-aa724.appspot.com',
-    iosClientId: '1088067363701-ckafc1jq573b1jeqvqoeiairo9r676j9.apps.googleusercontent.com',
+    apiKey: 'AIzaSyACKvh7Fqr-2yDICipF3ZcG6DeubiQbEdY',
+    appId: '1:886817151519:ios:46a25cf312d2770971932a',
+    messagingSenderId: '886817151519',
+    projectId: 'qrcafe-33aef',
+    storageBucket: 'qrcafe-33aef.appspot.com',
+    iosClientId: '886817151519-92lho6t1968drtbqfko1lj5vaeo62uai.apps.googleusercontent.com',
     iosBundleId: 'com.example.qrcafe',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCYPgpw_a8mSP3a5m6S3x1QNxN7ODxEiZk',
-    appId: '1:1088067363701:ios:52f2b183cb90fe6185293c',
-    messagingSenderId: '1088067363701',
-    projectId: 'qrcafe-aa724',
-    storageBucket: 'qrcafe-aa724.appspot.com',
-    iosClientId: '1088067363701-v22na462jjdt877bg2q58nbpjr4b7fr8.apps.googleusercontent.com',
-    iosBundleId: 'com.example.qrcafe.RunnerTests',
   );
 }
